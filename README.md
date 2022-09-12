@@ -2,6 +2,15 @@
 
 Backend API as part of evaluation at Masai School in a duration of 3 hours
 
+# Features
+
+- Role based access control
+- Auth routes login and signup
+- Reset password new password
+- JWT token & refresh token generation
+- JWT blacklist
+- Reset password sends OTP
+
 # Problem Statement
 
 Create an employee management system for for a company's HR
