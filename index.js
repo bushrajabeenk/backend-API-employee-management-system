@@ -4,6 +4,10 @@ const crypto = require("node:crypto");
 const UserModel = require("./models/user");
 // const OtpModel = require("./models/otp");
 const jwt = require("jsonwebtoken");
+const nodeMailer = require("nodemailer");
+// const dotenv = require("dotenv").config();
+require("dotenv").config();
+const cors = require("cors");
 
 const app = express();
 
@@ -199,6 +203,36 @@ app.get("/user/:id", async (req, res) => {
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+app.post("/getemail", async (req, res) => {
+  const { email } = req.body;
+  let user = await UserModel.findOne({ email });
+  const mail = await nodeMailer.createTransport({
+    service: "gmail",
+    port: 587, //465
+    auth: {
+      user: "bushjabeen22@gmail.com",
+      pass: process.env.PASS,
+    },
+  });
+  let otp = Math.floor(Math.random() * 1000000);
+
+  const info = await mail.sendMail({
+    from: "Bushra",
+    to: `${email}`,
+    subject: "Evaluation testing",
+  });
+
+  if (user) {
+    // const token = jwt.sign({ email: user.email, otp: otp }, "SECRET");
+    res.send({ email: user.email, otp: otp, id: user._id });
+  } else {
+    // const token = jwt.sign({ otp }, "SECRET");
+    res.send({ otp });
+  }
+});
+
+//------------------------------------------------------------------------------------------------------------------------------
 
 mongoose.connect("mongodb://localhost:27017/web-17").then(() => {
   app.listen(8080, () => {
