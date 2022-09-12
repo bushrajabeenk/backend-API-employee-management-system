@@ -1,0 +1,26 @@
+// for self testing
+
+
+{
+    _id: ObjectId("62f0e7842c2ded377bdb7c82"),
+    name: 'Bushra',
+    username: 'bush',
+    hash: '3bf9f26f0c9934773f729eefd672f5dcf78a7e3bfe7e9d0bfb909eee4f823fea496b14e19fa203c02e009485464ec3a34d8d5caa655546d5ad161a8c5e3a4e69',
+    role: 'Employee',
+    __v: 0,
+    {
+    "message": "Login successfull",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZjBlOGQ2ZjE0OWVmNTM3MGI3NjExNiIsIm5hbWUiOiJCdXNocmEiLCJyb2xlIjoiRW1wbG95ZWUiLCJpYXQiOjE2NTk5NTU0MjEsImV4cCI6MTY1OTk1NTcyMX0.JSpjVWJEyKEIgOIZc7OXlHqyzPZ6z4o8Ihsk3gdnB_s",
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTk5NTU0MjEsImV4cCI6MTY2MDU2MDIyMX0.YYfqEIDhcCFR9ujRdfAEsmK06J7U-yRlC7fbLjnVVj4"
+    }
+},
+
+
+  {
+    _id: ObjectId("62f0e7dc2c2ded377bdb7c86"),
+    name: 'Jabeen',
+    username: 'jab',
+    hash: 'ad413392c8924ab72ce6b83c10956ac8a6677072a938f6762a6aca92c512ca6bc321b256fdff39502835e13b9abf17c87b92a0002b774006201346381cefb591',
+    role: 'Guests',
+    __v: 0
+  }
