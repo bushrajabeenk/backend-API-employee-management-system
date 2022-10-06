@@ -18,17 +18,23 @@ let blacklist = [];
 
 // login using the created account
 app.post("/login", async (req, res) => {
+  // username and password from login body
   const { username, password } = req.body;
 
-  const user = await UserModel.findOne({ username });
-  // hash the password first
-  const hash = crypto
+  // hash the login password first
+  const hashFromLogin = crypto
     .pbkdf2Sync(password, "SECRET", 60, 64, "sha256")
     .toString("hex");
 
+  console.log(hashFromLogin);
+
+  // user details from signup data
+  const user = await UserModel.findOne({ username });
+  console.log(user);
+
   try {
     // check if the entered creds are right or wrong
-    if (hash === user?.hash) {
+    if (hashFromLogin === user?.hash) {
       // if correct then make it jwt authenticated
 
       // accessToken is created
@@ -43,6 +49,7 @@ app.post("/login", async (req, res) => {
           expiresIn: "5mins",
         }
       );
+
       // refreshToken is created
       const refreshToken = jwt.sign({}, "REFRESHTOKEN", {
         expiresIn: "7 days",
@@ -101,9 +108,10 @@ app.post("/employee", async (req, res) => {
     const { role } = jwt.verify(token, "SECRET");
     console.log(role);
 
-    // by default only HR is being able to create a new employee  
+    // by default only HR is being able to create a new employee
     // so check if the new employee being created is either Employee or Guests
     if (role === "Employee" || role === "Guests") {
+      // if yes  only then send the details
       return res.status(200).send(user);
     }
     return res
