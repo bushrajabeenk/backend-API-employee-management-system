@@ -22,11 +22,10 @@ app.post("/login", async (req, res) => {
   const { username, password } = req.body;
 
   // hash the login password first
-  const hashFromLogin = crypto
+  const hashedPasswordFromLogin = crypto
     .pbkdf2Sync(password, "SECRET", 60, 64, "sha256")
     .toString("hex");
-
-  console.log(hashFromLogin);
+  console.log(hashedPasswordFromLogin);
 
   // user details from signup data
   const user = await UserModel.findOne({ username });
@@ -34,7 +33,7 @@ app.post("/login", async (req, res) => {
 
   try {
     // check if the entered creds are right or wrong
-    if (hashFromLogin === user?.hash) {
+    if (hashedPasswordFromLogin === user?.hash) {
       // if correct then make it jwt authenticated
 
       // accessToken is created
