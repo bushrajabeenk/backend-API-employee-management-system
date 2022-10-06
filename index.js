@@ -27,15 +27,15 @@ app.post("/login", async (req, res) => {
     .toString("hex");
   console.log(hashedPasswordFromLogin);
 
-  // user details from signup data
+  // get the user details from signup data
   const user = await UserModel.findOne({ username });
   console.log(user);
 
   try {
     // check if the entered creds are right or wrong
+    // i.e check if the signup & login creds match
     if (hashedPasswordFromLogin === user?.hash) {
       // if correct then make it jwt authenticated
-
       // accessToken is created
       const token = jwt.sign(
         {
