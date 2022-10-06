@@ -24,3 +24,26 @@
     role: 'Guests',
     __v: 0
   }
+
+  06-10-2022
+
+//signup
+
+  [
+  {
+    _id: ObjectId("633eccf91fdc4b75c1a648a6"),
+    name: 'Bushra',
+    username: 'bush',
+    hash: 'fc8a54d66e2d2772704ccd1f8c29bfea6920e8d6542b5f94a42ab267140123c16c834f9d760f39e6c3af1d2519db21877479054251b141a36464f84bed13cbe7',
+    role: 'Employee',
+    __v: 0
+  }
+]
+
+//login
+
+{
+  "message": "Login successfull",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzM2VjY2Y5MWZkYzRiNzVjMWE2NDhhNiIsIm5hbWUiOiJCdXNocmEiLCJyb2xlIjoiRW1wbG95ZWUiLCJpYXQiOjE2NjUwNjQxNjYsImV4cCI6MTY2NTA2NDQ2Nn0.zmeAK1s1xw__be9NTdqCxOJ82xolhYNl4rAQ4SwzXu8",
+  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NjUwNjQxNjYsImV4cCI6MTY2NTY2ODk2Nn0.55vyf6gR-L18Bq0UJH20guALTfKDe6GLBfx2AuFKt8E"
+}

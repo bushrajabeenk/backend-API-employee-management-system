@@ -19,6 +19,7 @@ let blacklist = [];
 // login using the created account
 app.post("/login", async (req, res) => {
   const { username, password } = req.body;
+
   const user = await UserModel.findOne({ username });
   // hash the password first
   const hash = crypto
@@ -66,6 +67,7 @@ app.post("/login", async (req, res) => {
 // create a user account
 app.post("/signup", async (req, res) => {
   const { username, password, name, role } = req.body;
+
   // hash the password first
   const hash = crypto
     .pbkdf2Sync(password, "SECRET", 60, 64, "sha256")
@@ -91,6 +93,7 @@ app.post("/employee", async (req, res) => {
   const user = new UserModel(req.body);
 
   const token = req.headers["authorization"].split(" ")[1];
+
   if (!token) {
     return;
   }
@@ -98,7 +101,7 @@ app.post("/employee", async (req, res) => {
     const { role } = jwt.verify(token, "SECRET");
     console.log(role);
 
-    if (role !== "HR") {
+    if (role === "HR") {
       return res
         .status(401)
         .send("You don't have access to create a new employee");

@@ -4,7 +4,7 @@ const UserSchema = new Schema({
   name: { type: String, unique: true },
   username: String,
   hash: String,
-  otp: String,
+  // otp: String,
   email: { type: String, unique: true },
   role: {
     type: String,
