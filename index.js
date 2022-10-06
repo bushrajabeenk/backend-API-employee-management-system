@@ -101,13 +101,14 @@ app.post("/employee", async (req, res) => {
     const { role } = jwt.verify(token, "SECRET");
     console.log(role);
 
-    if (role === "HR") {
-      return res
-        .status(401)
-        .send("You don't have access to create a new employee");
-    } else {
+    // by default only HR is being able to create a new employee  
+    // so check if the new employee being created is either Employee or Guests
+    if (role === "Employee" || role === "Guests") {
       return res.status(200).send(user);
     }
+    return res
+      .status(401)
+      .send("You don't have access to create a new employee");
   } catch (e) {
     return res.status(403).send("Forbidden");
   }
