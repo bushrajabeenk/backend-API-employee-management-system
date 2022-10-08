@@ -40,10 +40,3 @@
   }
 ]
 
-//login
-
-{
-  "message": "Login successfull",
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzM2VmNzQ1Mjc4MTA1OTRlYmVkODc2MSIsIm5hbWUiOiJCdXNocmEiLCJyb2xlIjoiRW1wbG95ZWUiLCJpYXQiOjE2NjUwNzA5MjQsImV4cCI6MTY2NTA3MTIyNH0.PglMNbAjX21e-0OxwU4L7zQyeJoTFvdpc8P-v4R6Hdc",
-  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NjUwNzA5MjQsImV4cCI6MTY2NTY3NTcyNH0.UbNyyYeG1VmuschbTPCud8HcIFKJ2GVrDn6p_WCz5tM"
-}
